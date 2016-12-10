@@ -21,4 +21,18 @@ dependencies {
     compile 'junit:junit:4.12'
 }
 
-mainClassName = "Lesson1"
+task lesson1(type: JavaExec) {
+    main = "Lesson1"
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task lesson2(type: JavaExec) {
+    main = "Lesson2"
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task runAll(type: GradleBuild) {
+    tasks = ['lesson1', 'lesson2']
+}
+
+defaultTasks 'runAll'
